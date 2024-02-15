@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Orbit - Bootstrap 5 Resume/CV Template for Developers</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive HTML5 Resume/CV Template for Developers">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <link rel="shortcut icon" href="favicon.ico">
+    <!-- Google Font -->
+    <link
+        href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic'
+        rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/orbit-4.css">
+    <!--style>
+        .clock-container {
+            position: fixed;
+            /* or position: absolute; */
+            bottom: 0;
+            right: 0;
+            padding: 15px;
+            /* Add padding for better visibility */
+            background-color: #f0f0f0;
+            /* Add background color as needed */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            /* Optional: Add box shadow for style */
+            z-index: 1000;
+            /* Ensure the clock is above other elements */
+        }
+    </style-->
+</head>
+
+<body>
+    <div class="wrapper mt-lg-5">
+        <div class="sidebar-wrapper">
+            <div class="profile-container">
+                <!--img class="profile" src="swetha_potrait.jpg" alt="" / -->
+                <img class="profile" src="swetha_potrait.jpg" alt="Profile Picture"
+                    style="width: 150px; height: 150px; border-radius: 50%;">
+                <h1 class="name" style="font-size: 22px;">Naga Swetha Vempati</h1>
+                <h3 class="tagline">Aspiring Full Stack Web Developer</h3>
+            </div><!--//profile-container-->
+
+            <div class="contact-container container-block">
+                <ul class="list-unstyled contact-list">
+                    <!--li class="email"><i class="fa-solid fa-envelope"></i><a
+                            href="mailto: yourname@email.com">alan.doe@website.com</a></li -->
+                    <li id="email" class="email" onclick="showHideEmail()">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>Show my email</span>
+                        <script src="email.js"></script>
+                    </li>
+                    <li class="phone"><i class="fa-solid fa-phone"></i><a href="tel:5134626798">5134626798</a></li>
+                    <li class="github"><i class="fa-brands fa-github"></i><a href="https://github.com/vempatna"
+                            target="_blank">github.com/vempatna</a></li>
+                    <li class="WAPH"><a href="https://google.com" target="_blank">Web Application Devlopment And
+                            Hacking</a></li>
+
+
+                </ul>
+            </div><!--//contact-container-->
+            <div class="education-container container-block">
+                <h2 class="container-block-title">Education</h2>
+                <div class="item">
+                    <h4 class="degree">Masters in Information Technology</h4>
+                    <h5 class="meta">University of Cincinnati</h5>
+                    <div class="time">2023-2024</div>
+                </div><!--//item-->
+                <div class="item">
+                    <h4 class="degree">Bachelor of Technology in ECE</h4>
+                    <h5 class="meta">RGUKT, Srikakulam, India</h5>
+                    <div class="time">2018 - 2022</div>
+                </div><!--//item-->
+            </div><!--//education-container-->
+
+            <div class="languages-container container-block">
+                <h2 class="container-block-title">Languages</h2>
+                <ul class="list-unstyled interests-list">
+                    <li>English <span class="lang-desc">(Professional)</span></li>
+                    <li>Telugu <span class="lang-desc">(Native)</span></li>
+                    <li>Hindi <span class="lang-desc">(Native)</span></li>
+                </ul>
+            </div><!--//interests-->
+
+            <div class="interests-container container-block">
+                <h2 class="container-block-title">Interests</h2>
+                <ul class="list-unstyled interests-list">
+                    <li>Cooking</li>
+                    <li>Snowboarding</li>
+                    <li>Drawing</li>
+                </ul>
+            </div><!--//interests-->
+            <div class="clock-container">
+                <h2 class="container-block-title" style="text-align: center;">Current Time</h2>
+                <div id="digital-clock"></div>
+                <script>
+                    function displayTime() {
+                        document.getElementById('digital-clock').innerHTML = "Current Time: " + new Date();
+                    }
+                    setInterval(displayTime, 500);
+                </script>
+                <canvas id="analog-clock" width="150" height="150"
+                    style="background-color:#999; display: block; margin: auto; border-radius: 50%;"></canvas>
+                <script src="https://waph-uc.github.io/clock.js"></script>
+                <script>
+                    var canvas = document.getElementById("analog-clock");
+                    var ctx = canvas.getContext("2d");
+                    var radius = canvas.height / 2;
+                    ctx.translate(radius, radius);
+                    radius = radius * 0.90;
+                    setInterval(drawClock, 1000);
+
+                    function drawClock() {
+                        drawFace(ctx, radius);
+                        drawNumbers(ctx, radius);
+                        drawTime(ctx, radius);
+                    }
+                </script>
+            </div>
+
+        </div><!--//sidebar-wrapper-->
+
+        <div class="main-wrapper">
+            <section class="quotes">
+                <div>
+                    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+                        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+                        crossorigin="anonymous"></script>
+                    <div id="quote-container">
+                        <!-- Quote will be displayed here -->
+                    </div>
+                    <script>
+                        $.get("https://v2.jokeapi.dev/joke/Programming?type=single",
+                            function (result) {
+                                console.log("From JokeAPI: " + JSON.stringify(result));
+                                $("#qote-container").html("A programming joke of the day:" + result.joke);
+                            }
+                        );
+                        $(document).ready(function () {
+
+                            $.get("https://type.fit/api/quotes", function (result) {
+
+                                const randomIndex = Math.floor(Math.random() * result.length);
+                                const randomQuote = result[randomIndex].text;
+                                const author = result[randomIndex].author || "Unknown";
+
+                                // Display the quote in the specified HTML element
+                                $("#quote-container").html(`Hi there! Quote of the day: "${randomQuote}" - ${author}`);
+                            });
+                        });
+                    </script>
+            </section>
+
+            <section class="section summary-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-user"></i></span>CAREER
+                    OBJECTIVE</h2>
+                <div class="summary">
+                    <p>Dedicated and results-driven professional with over a year of hands-on experience as an
+                        Application Developer, I am passionate about transitioning into a Full Stack Web Developer role
+                        to broaden my skill set and contribute to dynamic and innovative web development projects. My
+                        proven expertise in application development, combined with a strong foundation in both front-end
+                        and back-end technologies, positions me to excel in designing and implementing robust,
+                        user-centric, and scalable web solutions. I am eager to leverage my programming skills,
+                        problem-solving abilities, and commitment to delivering high-quality code to make a significant
+                        impact as a Full Stack Web Developer.</p>
+                </div><!--//summary-->
+            </section><!--//section-->
+
+            <section class="section experiences-section">
+                <h2 class="section-title"><span class="icon-holder"><i
+                            class="fa-solid fa-briefcase"></i></span>PROFESSIONAL AND TECHNICAL WORK EXPERIENCE</h2>
+
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">Application Developer</h3>
+                            <div class="time">May 2022 - July 2023</div>
+                        </div><!--//upper-row-->
+                        <div class="company">IBM, Hyderabad, India</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <ul>
+                            <li>Proficient in Java, Spring Boot, and databases, contributing to backend development.
+                            </li>
+                            <li>Led implementation of Access Control List (ACL) for DPS React Migration Project,
+                                enhancing security and user access controls.</li>
+                            <li>Updated and maintained API functions, ensuring alignment with industry standards.</li>
+                            <li>Managed Change Request (CR) approval process, actively participating in meetings and
+                                securing approvals for seamless production integration.</li>
+                        </ul>
+                    </div><!--//details-->
+                </div><!--//item-->
+
+
+            </section><!--//section-->
+
+            <section class="section projects-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-archive"></i></span>TECHNICAL
+                    PROJECTS
+                </h2>
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="project-title">Smart Farming Using Digital Technologies</h3>
+                            <div class="time">Jan 2022</div>
+                        </div><!--//upper-row-->
+                    </div><!--//meta-->
+                    <div class="details">
+                        <ul>
+                            <li>Predicted best suited crop to be sown based on soil properties like P, K, N using ML
+                                Algorithms.
+                            </li>
+                            <li>Obtained the soil features using sensors and Arduino.</li>
+                            <li>Deployed our model to the web using github, Heroku.</li>
+                        </ul>
+                    </div><!--//details-->
+                </div><!--//item-->
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="project-title">Aquatic Resources Management</h3>
+                            <div class="time">Dec 2019</div>
+                        </div><!--//upper-row-->
+                    </div><!--//meta-->
+                    <div class="details">
+                        <ul>
+                            <li>Developed a model to utilize water resources in an efficient way.</li>
+                            <li>Selected for regional convention in Chhathra Viswakarma Awards 2019 conducted by AICTE.
+                            </li>
+                        </ul>
+                    </div><!--//details-->
+                </div><!--//item-->
+
+            </section><!--//section-->
+
+            <section class="skills-section section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-rocket"></i></span>SKILLS
+                    &amp; PROFICIENCY</h2>
+                <div class="skillset">
+                    <div class="item">
+                        <h3 class="level-title">Python, Java, C++, SQL</h3>
+                        <div class="progress level-bar">
+                            <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 99%"
+                                aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div><!--//item-->
+
+                    <div class="item">
+                        <h3 class="level-title">HTML, CSS, Javascript</h3>
+                        <div class="progress level-bar">
+                            <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 98%"
+                                aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div><!--//item-->
+
+                    <div class="item">
+                        <h3 class="level-title">React, Spring Boot</h3>
+                        <div class="progress level-bar">
+                            <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 98%"
+                                aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div><!--//item-->
+
+                    <div class="item">
+                        <h3 class="level-title">Git, Jenkins, Docker</h3>
+                        <div class="progress level-bar">
+                            <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 95%"
+                                aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div><!--//item-->
+
+                    <div class="item">
+                        <h3 class="level-title">Matlab, Tableau</h3>
+                        <div class="progress level-bar">
+                            <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 85%"
+                                aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div><!--//item-->
+
+                    <div class="item">
+                        <h3 class="level-title">AWS, Microsoft Azure</h3>
+                        <div class="progress level-bar">
+                            <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 60%"
+                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div><!--//item-->
+
+                </div>
+            </section><!--//skills-section-->
+            </section><!--//section-->
+
+            <section class="skillset-section section">
+                <h2 class="section-title"><span class="icon-holder"><i
+                            class="fa-solid fa-certificate"></i></span>CERTIFICATIONS
+                </h2>
+                <div class="skillset">
+                    <div class="item">
+                        <ul>
+                            <li>Microsoft Certified:Azure Fundamentals</li>
+                            <li>Machine Learning</li>
+                            <li>Exploratory Data Analysis using Matlab</li>
+                        </ul>
+                    </div><!--//item-->
+            </section>
+
+        </div><!--//main-body-->
+    </div>
+
+
+
+    <footer class="footer">
+        <div class="text-center">
+            <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">Designed with <i class="fa-solid fa-heart"></i> by <a
+                    href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for
+                developers</small>
+        </div><!--//container-->
+    </footer><!--//footer-->
+
+</body>
+
+</html>
