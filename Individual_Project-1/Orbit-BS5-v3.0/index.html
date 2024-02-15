@@ -37,6 +37,46 @@
             /* Ensure the clock is above other elements */
         }
     </style-->
+    <script>
+        // Function to set or update session cookies
+        function setCookie(name, value) {
+            document.cookie = name + "=" + value + ";path=/";
+        }
+
+        // Function to get the value of a session cookie
+        function getCookie(name) {
+            const cookies = document.cookie.split(';');
+            for (const cookie of cookies) {
+                const [cookieName, cookieValue] = cookie.trim().split('=');
+                if (cookieName === name) {
+                    return cookieValue;
+                }
+            }
+            return null;
+        }
+
+        // Function to display welcome message and track visits
+        function displayWelcomeMessage() {
+            const lastLoginTimestamp = getCookie('lastLoginTimestamp');
+            let visitCount = parseInt(getCookie('visitCount')) || 0;
+
+            if (!lastLoginTimestamp) {
+                // First-time visit
+                alert("Welcome to my page!");
+            } else {
+                // Returning visitor
+                alert("Welcome back! Last login: " + lastLoginTimestamp);
+            }
+
+            // Update visit count and last login timestamp
+            visitCount++;
+            setCookie('visitCount', visitCount);
+            setCookie('lastLoginTimestamp', new Date().toLocaleString());
+        }
+
+        // Call the function to display welcome message and track visits on page load
+        displayWelcomeMessage();
+    </script>
 </head>
 
 <body>
@@ -130,35 +170,7 @@
         </div><!--//sidebar-wrapper-->
 
         <div class="main-wrapper">
-            <section class="quotes">
-                <div>
-                    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-                        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-                        crossorigin="anonymous"></script>
-                    <div id="quote-container">
-                        <!-- Quote will be displayed here -->
-                    </div>
-                    <script>
-                        $.get("https://v2.jokeapi.dev/joke/Programming?type=single",
-                            function (result) {
-                                console.log("From JokeAPI: " + JSON.stringify(result));
-                                $("#qote-container").html("A programming joke of the day:" + result.joke);
-                            }
-                        );
-                        $(document).ready(function () {
 
-                            $.get("https://type.fit/api/quotes", function (result) {
-
-                                const randomIndex = Math.floor(Math.random() * result.length);
-                                const randomQuote = result[randomIndex].text;
-                                const author = result[randomIndex].author || "Unknown";
-
-                                // Display the quote in the specified HTML element
-                                $("#quote-container").html(`Hi there! Quote of the day: "${randomQuote}" - ${author}`);
-                            });
-                        });
-                    </script>
-            </section>
 
             <section class="section summary-section">
                 <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-user"></i></span>CAREER
@@ -310,6 +322,36 @@
                             <li>Exploratory Data Analysis using Matlab</li>
                         </ul>
                     </div><!--//item-->
+            </section>
+
+            <section class="quotes">
+                <div>
+                    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+                        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+                        crossorigin="anonymous"></script>
+                    <div id="quote-container"
+                        style="color: #6e3852; font-size: 18px; font-family: 'Arial', sans-serif;">
+                        <!-- Quote will be displayed here -->
+                    </div>
+                    <script>
+                        $.get("https://v2.jokeapi.dev/joke/Programming?type=single",
+                            function (result) {
+                                console.log("From JokeAPI: " + JSON.stringify(result));
+                                $("#quote-container").html("A programming joke of the day: " + result.joke);
+                            }
+                        );
+                        /*$(document).ready(function () {
+
+                            $.get("https://type.fit/api/quotes", function (result) {
+
+                                const randomIndex = Math.floor(Math.random() * result.length);
+                                const randomQuote = result[randomIndex].text;
+                                const author = result[randomIndex].author || "Unknown";
+
+                                // Display the quote in the specified HTML element
+                                $("#quote-container").html(`Hi there! Quote of the day: "${randomQuote}" - ${author}`);
+                            });*/
+                    </script>
             </section>
 
         </div><!--//main-body-->
