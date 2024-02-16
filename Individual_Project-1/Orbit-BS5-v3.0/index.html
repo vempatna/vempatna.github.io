@@ -21,22 +21,34 @@
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
     <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="assets/css/orbit-4.css">
-    <!--style>
-        .clock-container {
-            position: fixed;
-            /* or position: absolute; */
-            bottom: 0;
-            right: 0;
-            padding: 15px;
-            /* Add padding for better visibility */
-            background-color: #f0f0f0;
-            /* Add background color as needed */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            /* Optional: Add box shadow for style */
-            z-index: 1000;
-            /* Ensure the clock is above other elements */
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        .toggle-buttons {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
         }
-    </style-->
+
+        .toggle-buttons button {
+            background-color: #6e3852;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-buttons button:hover {
+            background-color: #542440;
+        }
+    </style>
+
+    <!--Code to execute the alert using the cookie data-->
     <script>
         // Function to set or update session cookies
         function setCookie(name, value) {
@@ -216,7 +228,7 @@
 
 
 
-            <section class="section summary-section">
+            <section class="section-summary">
                 <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-user"></i></span>CAREER
                     OBJECTIVE</h2>
                 <div class="summary">
@@ -229,9 +241,24 @@
                         problem-solving abilities, and commitment to delivering high-quality code to make a significant
                         impact as a Full Stack Web Developer.</p>
                 </div><!--//summary-->
+                <script>
+                    // jQuery functionality for changing the background color on hover
+                    $(document).ready(function () {
+                        $(".section-summary").hover(
+                            function () {
+                                // Mouse enter - change background color to light blue
+                                $(this).css("background-color", "#e6f7ff");
+                            },
+                            function () {
+                                // Mouse leave - change background color back to normal
+                                $(this).css("background-color", "");
+                            }
+                        );
+                    });
+                </script>
             </section><!--//section-->
 
-            <section class="section experiences-section">
+            <section class="section-experiences">
                 <h2 class="section-title"><span class="icon-holder"><i
                             class="fa-solid fa-briefcase"></i></span>PROFESSIONAL AND TECHNICAL WORK EXPERIENCE</h2>
 
@@ -254,12 +281,27 @@
                                 securing approvals for seamless production integration.</li>
                         </ul>
                     </div><!--//details-->
+                    <script>
+                        // jQuery functionality for changing the background color on hover
+                        $(document).ready(function () {
+                            $(".section-experiences").hover(
+                                function () {
+                                    // Mouse enter - change background color to light blue
+                                    $(this).css("background-color", "#e6f7ff");
+                                },
+                                function () {
+                                    // Mouse leave - change background color back to normal
+                                    $(this).css("background-color", "");
+                                }
+                            );
+                        });
+                    </script>
                 </div><!--//item-->
 
 
             </section><!--//section-->
 
-            <section class="section projects-section">
+            <section class="section-projects">
                 <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-archive"></i></span>TECHNICAL
                     PROJECTS
                 </h2>
@@ -295,10 +337,25 @@
                         </ul>
                     </div><!--//details-->
                 </div><!--//item-->
+                <script>
+                    // jQuery functionality for changing the background color on hover
+                    $(document).ready(function () {
+                        $(".section-projects").hover(
+                            function () {
+                                // Mouse enter - change background color to light blue
+                                $(this).css("background-color", "#e6f7ff");
+                            },
+                            function () {
+                                // Mouse leave - change background color back to normal
+                                $(this).css("background-color", "");
+                            }
+                        );
+                    });
+                </script>
 
             </section><!--//section-->
 
-            <section class="skills-section section">
+            <!--section class="skills-section section">
                 <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-rocket"></i></span>SKILLS
                     &amp; PROFICIENCY</h2>
                 <div class="skillset">
@@ -308,7 +365,7 @@
                             <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 99%"
                                 aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                    </div><!--//item-->
+                    </div><//item>
 
                     <div class="item">
                         <h3 class="level-title">HTML, CSS, Javascript</h3>
@@ -316,7 +373,7 @@
                             <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 98%"
                                 aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                    </div><!--//item-->
+                    </div><//item>
 
                     <div class="item">
                         <h3 class="level-title">React, Spring Boot</h3>
@@ -324,7 +381,7 @@
                             <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 98%"
                                 aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                    </div><!--//item-->
+                    </div><//item>
 
                     <div class="item">
                         <h3 class="level-title">Git, Jenkins, Docker</h3>
@@ -332,7 +389,7 @@
                             <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 95%"
                                 aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                    </div><!--//item-->
+                    </div><//item>
 
                     <div class="item">
                         <h3 class="level-title">Matlab, Tableau</h3>
@@ -340,7 +397,7 @@
                             <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 85%"
                                 aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                    </div><!--//item-->
+                    </div><//item>
 
                     <div class="item">
                         <h3 class="level-title">AWS, Microsoft Azure</h3>
@@ -348,13 +405,216 @@
                             <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 60%"
                                 aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                    </div><!--//item-->
+                    </div><//item>
 
                 </div>
-            </section><!--//skills-section-->
-            </section><!--//section-->
+            </section--><!--Skills Section-->
 
-            <section class="skillset-section section">
+            <div id="skills-root"></div>
+            <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+            <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+            <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.js"></script>
+
+            <style>
+                /* Additional styles */
+                .skillset .item {
+                    margin-bottom: 20px;
+                }
+
+                .progress-bar-container {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 10px;
+                }
+
+                .level-title {
+                    margin-bottom: 5px;
+                }
+
+                .toggle-buttons button {
+                    margin-right: 10px;
+                }
+
+                .category-title {
+                    margin-bottom: 10px;
+                    /* Adjust the value as needed */
+                }
+
+                .progress-bar-container {
+                    margin-bottom: 10px;
+                }
+            </style>
+
+            <script type="text/babel">
+                // React component for skills section
+                class SkillsSection extends React.Component {
+                    constructor(props) {
+                        super(props);
+                        this.state = {
+                            showProgrammingLanguages: false,
+                            showFrameworks: false,
+                            showDeveloperTools: false,
+                            showSoftware: false,
+                            showSoftSkills: false,
+                        };
+                    }
+
+                    toggleSkillCategory = (category) => {
+                        this.setState((prevState) => ({
+                            [category]: !prevState[category],
+                        }));
+                    };
+
+                    render() {
+                        return (
+                            <section className="skills-section section">
+                                <h2 className="section-title">
+                                    <span className="icon-holder"><i className="fa-solid fa-rocket"></i></span>SKILLS & PROFICIENCY
+                                </h2>
+                                <div className="skillset">
+                                    {this.state.showProgrammingLanguages && (
+                                        <div className="item">
+                                            <div className="progress-bar-container">
+                                                <div className="level-title">Java, C++, Python</div>
+                                                <div className="progress level-bar">
+                                                    <div className="progress-bar theme-progress-bar" role="progressbar" style={{ width: '99%' }} aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div className="progress-bar-container">
+                                                <div className="level-title">HTML, CSS, JavaScript</div>
+                                                <div className="progress level-bar">
+                                                    <div className="progress-bar theme-progress-bar" role="progressbar" style={{ width: '99%' }} aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div className="progress-bar-container">
+                                                <div className="level-title">MySQL, MongoDB</div>
+                                                <div className="progress level-bar">
+                                                    <div className="progress-bar theme-progress-bar" role="progressbar" style={{ width: '95%' }} aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div className="progress-bar-container">
+                                                <div className="level-title">Data Structures, Algorithms</div>
+                                                <div className="progress level-bar">
+                                                    <div className="progress-bar theme-progress-bar" role="progressbar" style={{ width: '99%' }} aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {this.state.showFrameworks && (
+                                        <div className="item">
+
+                                            <div className="progress-bar-container">
+                                                <div className="level-title">Spring Boot, React Native</div>
+                                                <div className="progress level-bar">
+                                                    <div className="progress-bar theme-progress-bar" role="progressbar" style={{ width: '90%' }} aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div className="progress-bar-container">
+                                                <div className="level-title">Node JS, Maven</div>
+                                                <div className="progress level-bar">
+                                                    <div className="progress-bar theme-progress-bar" role="progressbar" style={{ width: '80%' }} aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {this.state.showDeveloperTools && (
+                                        <div className="item">
+
+                                            <div className="progress-bar-container">
+                                                <div className="level-title">Git, Jenkins, Docker</div>
+                                                <div className="progress level-bar">
+                                                    <div className="progress-bar theme-progress-bar" role="progressbar" style={{ width: '95%' }} aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div className="progress-bar-container">
+                                                <div className="level-title">AWS, Devops</div>
+                                                <div className="progress level-bar">
+                                                    <div className="progress-bar theme-progress-bar" role="progressbar" style={{ width: '90%' }} aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div className="progress-bar-container">
+                                                <div className="level-title">Microsoft Azure</div>
+                                                <div className="progress level-bar">
+                                                    <div className="progress-bar theme-progress-bar" role="progressbar" style={{ width: '80%' }} aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {this.state.showSoftware && (
+                                        <div className="item">
+
+                                            <div className="progress-bar-container">
+                                                <div className="level-title">Linux, Microsoft Office</div>
+                                                <div className="progress level-bar">
+                                                    <div className="progress-bar theme-progress-bar" role="progressbar" style={{ width: '90%' }} aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div className="progress-bar-container">
+                                                <div className="level-title">Matlab, Tableau, Arduino</div>
+                                                <div className="progress level-bar">
+                                                    <div className="progress-bar theme-progress-bar" role="progressbar" style={{ width: '90%' }} aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {this.state.showSoftSkills && (
+                                        <div className="item">
+
+                                            <div className="progress-bar-container">
+                                                <div className="level-title">Problem Solving, Communication, Time Management</div>
+                                                <div className="progress level-bar">
+                                                    <div className="progress-bar theme-progress-bar" role="progressbar" style={{ width: '99%' }} aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* Buttons to toggle visibility */}
+                                    <div className="item">
+                                        <ul className="toggle-buttons">
+                                            <li>
+                                                <button onClick={() => this.toggleSkillCategory('showProgrammingLanguages')}>
+                                                    Programming Languages
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button onClick={() => this.toggleSkillCategory('showFrameworks')}>
+                                                    Frameworks
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button onClick={() => this.toggleSkillCategory('showDeveloperTools')}>
+                                                    Developer Tools
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button onClick={() => this.toggleSkillCategory('showSoftware')}>
+                                                    Software
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button onClick={() => this.toggleSkillCategory('showSoftSkills')}>
+                                                    Soft Skills
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                        );
+                    }
+                }
+
+                // Render the React component into the root element
+                ReactDOM.render(<SkillsSection />, document.getElementById('skills-root'));
+            </script>
+
+
+            <section class="section-certifications">
                 <h2 class="section-title"><span class="icon-holder"><i
                             class="fa-solid fa-certificate"></i></span>CERTIFICATIONS
                 </h2>
@@ -366,35 +626,43 @@
                             <li>Exploratory Data Analysis using Matlab</li>
                         </ul>
                     </div><!--//item-->
+                    <script>
+                        // jQuery functionality for changing the background color on hover
+                        $(document).ready(function () {
+                            $(".section-certifications").hover(
+                                function () {
+                                    // Mouse enter - change background color to light blue
+                                    $(this).css("background-color", "#e6f7ff");
+                                },
+                                function () {
+                                    // Mouse leave - change background color back to normal
+                                    $(this).css("background-color", "");
+                                }
+                            );
+                        });
+                    </script>
             </section>
 
             <section class="quotes">
                 <div>
-                    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-                        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-                        crossorigin="anonymous"></script>
+
                     <div id="quote-container"
                         style="color: #6e3852; font-size: 18px; font-family: 'Arial', sans-serif;">
                         <!-- Quote will be displayed here -->
                     </div>
                     <script>
-                        $.get("https://v2.jokeapi.dev/joke/Programming?type=single",
-                            function (result) {
+                        function fetchJoke() {
+                            $.get("https://v2.jokeapi.dev/joke/Programming?type=single", function (result) {
                                 console.log("From JokeAPI: " + JSON.stringify(result));
                                 $("#quote-container").html("A programming joke of the day: " + result.joke);
-                            }
-                        );
-                        /*$(document).ready(function () {
+                            });
+                        }
 
-                            $.get("https://type.fit/api/quotes", function (result) {
+                        // Fetch a new joke every minute (60 seconds)
+                        setInterval(fetchJoke, 60000);
 
-                                const randomIndex = Math.floor(Math.random() * result.length);
-                                const randomQuote = result[randomIndex].text;
-                                const author = result[randomIndex].author || "Unknown";
-
-                                // Display the quote in the specified HTML element
-                                $("#quote-container").html(`Hi there! Quote of the day: "${randomQuote}" - ${author}`);
-                            });*/
+                        // Initial fetch when the page loads
+                        fetchJoke();
                     </script>
             </section>
 
@@ -403,13 +671,18 @@
 
 
 
-    <footer class="footer">
-        <div class="text-center">
-            <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">Designed with <i class="fa-solid fa-heart"></i> by <a
-                    href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for
-                developers</small>
-        </div><!--//container-->
+    <footer class="footer" style="text-align: center; padding: 20px;">
+        <script src="https://s01.flagcounter.com/more/ABC/"></script>
+        <div class="flagcounter" style="display: inline-block;">
+
+            <p style="margin-bottom: 10px;">Page Tracker Here!!!</p>
+
+            <a href="https://info.flagcounter.com/pxzM" style="text-decoration: none;">
+                <img src="https://s11.flagcounter.com/count2/pxzM/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/"
+                    alt="Flag Counter" border="0" style="display: block; margin: 0 auto;">
+            </a>
+
+        </div>
     </footer><!--//footer-->
 
 </body>
