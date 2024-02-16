@@ -1,162 +1,130 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<!--style type="text/css">
-		body {background-color: powderblue;}
-		h1 {color: blue;}
-	</style-->
-
-	<link rel="stylesheet" type ="text/css" href="https://waph-uc.github.io/style1.css">
-	<style>
-		.button{
-			background-color: #4CAF50; /*Green*/
-			border:none;
-			color:white;
-			padding:5px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 12px;
-			margin: 4px 2px;
-			cursor: pointer;
-		}
-		.round{border-radius:8px;}
-		#response{background-color: #ff9800;} /*Orange colour*/
-	</style>
-
-	<meta charset = "utf-8">
-	<title> WAPH - NAGA SWETHA VEMPATI</title>
+	<meta charset="utf-8">
+	<title>WAPH - Naga Swetha Vempati</title>
 </head>
+
 <body>
-	<div class="container wrapper">
-		<div id = "top">
-			<h1> Web Application Programming and Hacking</h1>
-			<h2> Front-end Web Development Lab</h2>
-			<h3> Instructor: Dr. Phu Phung</h3>
-		</div>
-		<div class="wrapper">
-			<div id = "menubar">
-				<h3> Student: Naga Swetha Vempati</h3>
-				<img src = "lab2_images/swetha_potrait.jpg" alt="My Headshot" width="50">
-				<div id = "email" onclick ="showHideEmail()">Show my Email</div>
-				<script src="email.js"></script><br>
-				<div id="digital-clock"></div>
-				<script>
-					function displayTime(){
-						document.getElementById('digital-clock').innerHTML="Current Time: "+ new Date();
-					}
-					setInterval(displayTime,500);
-				</script>
-				<canvas id="analog-clock" width="150" height="150" style="background-color:#999"></canvas>
-				<script src="https://waph-uc.github.io/clock.js"></script>
-				<script>
-					var canvas = document.getElementById("analog-clock");
-					var ctx=canvas.getContext("2d");
-					var radius = canvas.height/2;
-					ctx.translate(radius, radius);
-					radius= radius*0.90;
-					setInterval(drawClock,1000);
+	<div id="top">
+		<h1>Web Application Programming and Hacking</h1>
+		<h2>Front-end Web Development Individual Project</h2>
+		<h3>Instructor: Dr. Phu Phung</h3>
+	</div>
+	<div id="menubar">
+		<h3>Student: Naga Swetha Vempati</h3>
+	</div>
+	<div id="main">
+		<h2>Repository Information</h2>
+		<p>Repository URL: <a href="https://github.com/vempatna/waph-vempatna">My Github Repository link</a><br>
+			This link takes you to my Private Repository, which contains all of the assignments and projects I finished
+			for the course.
+		</p>
+		<h2>Labs:</h2>
+		<ul>
+			<li>Lab-0
+				<p>Repository link: <a href="https://github.com/vempatna/waph-vempatna/tree/main/Labs/Lab0">Lab-0
+						Repository link</a></p>
+				<h3>Overview of Lab-0</h3>
+				<p>
+					In this Lab 0, we are creating a development ready environment in our VM by installing softwares
+					requrired and doing some hands on exercises to get familiar with git commands and markdown syntax.
+				</p>
+			</li>
+			<li>Lab-1
+				<p>Repository link: <a href="https://github.com/vempatna/waph-vempatna/tree/main/Labs/Lab1">Lab-1
+						Repository link</a></p>
+				<h3>Overview of Lab-1</h3>
+				<p>
+					In Lab-1, we embarked on a journey to comprehend the fundamentals of the Wireshark tool. Our
+					exploration
+					began with the analysis of HTTP GET requests and responses, examining scenarios where requests
+					originated from both browsers and Telnet in Part 1. Transitioning to Part 2, we delved into the
+					bedrock
+					of web development, demonstrating the creation of a basic HTML page through CGI programming in the C
+					language – an initial step into web application development.
 
-					function drawClock(){
-						drawFace(ctx,radius);
-						drawNumbers(ctx, radius);
-						drawTime(ctx,radius);
-					}
-				</script>
-			</div>
-			<div id = "main">
-				<p> A simple HTML page </p>
-				Using the <a href = "https://www.w3schools.com/html" target="_blank"> W3 Schools template</a>
-				<hr>
-				<b> Interaction with Forms </b>
-				<div>
-					<i>Form with an HTTP GET Request</i>
-					<form action="/echo.php" method = "GET">
-						Your input: <input name="data">
-						<input type = "submit" value="Submit">
-					</form>
-				</div>
-				<div>
-					<i>Form with an HTTP POST Request</i>
-					<form action="/echo.php" method = "POST" name="echo_post">
-						Your input: <input name="data" onkeypress="console.log('You have Pressed a Key')">
-						<input type = "submit" value="Submit">
-					</form>
-				</div>
-				<div>
-					<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-					<script>
-						function getEcho(){
-							var input = document.getElementById("data").value;
-							if(input.length==0){
-								return;
-							}
-							var xhttp = new XMLHttpRequest();
-							xhttp.onreadystatechange = function(){
-								if(this.readyState==4 && this.status==200){
-									console.log("Received data="+xhttp.responseText);
-									document.getElementById('response').innerText= "Response from server:"+xhttp.responseText;
-								} 						
-							}
-							xhttp.open("GET", "echo.php?data="+input, true);
-							//Code to create an Ajax request
+					Continuing our learning journey, we ventured into PHP, a language pivotal in web development. We
+					initiated with a simple "Hello World" program, showcasing its execution in a web browser.
+					Subsequently,
+					we expanded our PHP exploration by crafting an application capable of receiving data input. In this
+					endeavor, we meticulously examined the HTTP GET and POST requests and responses using Wireshark,
+					employing the Curl tool for POST request.
 
-							xhttp.send();
-							document.getElementById("data").value="";
-						}
-						function jQueryAjaxGet(){
-							var input = $("#data").val();
-							if(input.length==0){
-								return;
-							}
-							$.get("echo.php?data="+input,
-								function(result){
-								$("#response").html("Response from server, jQuery Ajax Get Echo:"+result);
-								}
-							);
-							$("#data").val("");
+					In summary, this lab not only introduced us to the powerful network analysis tool, Wireshark, but
+					also
+					provided hands-on experience in developing CGI applications in C and PHP. The comprehensive
+					exploration
+					encompassed HTTP GET and POST requests, reinforcing our understanding of web development and network
+					analysis.
+				</p>
+			</li>
+			<li>Lab-2
+				<p>Repository Link: <a href="https://github.com/vempatna/waph-vempatna/tree/main/Labs/Lab2">Lab-2
+						Repository Link</a></p>
+				<h3>Overview of Lab-2</h3>
+				<p>In Lab 2, we engaged in a comprehensive exploration of web development, delving into HTML, CSS,
+					JavaScript, and jQuery. Through a series of hands-on exercises, we applied our knowledge to create
+					dynamic and interactive web pages. The lab covered essential aspects of server communication,
+					introducing the basics of sending requests to the server using Ajax. Practical exercises involved
+					implementing diverse CSS methods—inline, internal, and external—utilizing external style sheets to
+					enhance the styling of our webpages.
 
-						}
+					A significant part of the lab involved practical demonstrations using echo.php as a backend server.
+					This showcased how jQuery and Ajax can seamlessly manage client requests and dynamically display
+					HTTP responses on the webpage. The integration of external APIs further enriched our learning
+					experience. By connecting to a jokes website, we implemented functionality that refreshed the page
+					with a new joke each time, illustrating the real-world application of Ajax.Additionally, we explored
+					the Fetch method and integrated the agify website, allowing us to dynamically generate random ages
+					based on user-input names. These exercises not only reinforced our understanding of web API
+					integration but also provided valuable insights into practical scenarios where such integrations can
+					enhance user experiences on websites.
 
-						function jQueryAjaxPost(){
-							var input = $("#data").val();
-							if(input.length==0){
-								return;
-							}
-							$.post("echo.php",{data:input},
-							 	function(result){
-								$("#response").html("Response from server, jQuery Ajax Post Echo:"+result);
-								}
-							);
-							$("#data").val("");
+					Overall, Lab 2 not only equipped us with theoretical knowledge but also allowed us to apply these
+					concepts in hands-on exercises, reinforcing our skills in building responsive web pages, managing
+					server requests, and integrating external APIs for dynamic and engaging content.
+				</p>
+			</li>
+		</ul>
+		<br />
+		<h2>Hackathons</h2>
+		<ul>
+			<li>
+				Hackathon - 1
+				<p>Repository Link: <a
+						href="https://github.com/vempatna/waph-vempatna/tree/main/hackathos/hackathon1">Hackathon-1
+						Repository Link</a></p>
+				<h3>Overview of Hackathon - 1</h3>
+				<p>
+					During hackathon-1, we employed an "echo.php" file as a basic server code with a request function
+					capable of accepting both GET and POST requests. The hackathon comprised seven levels, each
+					addressing and resolving security issues present in the initial server code to eliminate
+					vulnerabilities. In Level 0, we attempted to display an alert using an input form, and in Level 1,
+					we achieved the same result through a GET request by embedding the script directly in the header.
 
-						}
-						$.get("https://v2.jokeapi.dev/joke/Programming?type=single",
-							function(result){
-								console.log("From JokeAPI: "+ JSON.stringify(result));
-								$("#response").html("A programming joke of the day:"+ result.joke);
-							}
-						);
-						async function guessAge(name){
-							const response = await fetch("https://api.agify.io/?name="+name);
-							const result = await response.json();
-							$("#response").html("Hi " + name + ", Your age should be :"+ result.age);
-						}
-					</script>
-					<i>Ajax Requests</i><br>
-					Input data: <input name="data" onkeypress="console.log('You have pressed a key')" id="data">
-					<input class="button round" type = "button" value="Ajax echo" onclick="getEcho()")>
-					<input class="button round" type = "button" value="jQuery Ajax GET Echo" onclick="jQueryAjaxGet()")>
-					<input class="button round" type = "button" value="jQuery Ajax POST Echo" onclick="jQueryAjaxPost()")>
-					<input class = "button round" type = "button" value = "guess Age" onclick = "guessAge($('#data').val())")>
-					<div id="response"></div>
-				</div>
-				<hr>
-				<b>Experiments with JavaScript Code</b><br>
-				<i>Inlined JavaScript</i>
-				<div id="date" onclick="document.getElementById('date').innerHTML=Date()">Click Here to Display Date()</div>
-			</div>
-		</div>	
+					Level 2 involved displaying an alert by receiving input through a POST request, utilizing
+					client-side HTML code with a form to gather user input. Starting from Level 3, our focus shifted
+					towards bypassing script tags and preventing the execution of JavaScript code when inputs contained
+					such elements. For Level 5, we implemented code to restrict the input of alerts, requiring the use
+					of the "confirm" method for bypassing. Finally, in Level 7, we developed server-side code to block
+					any HTML code input and execution in the client browser.
+
+					Throughout this process, we gained a deeper understanding of Cross-Site Scripting (XSS) attacks and
+					SQL code injections in the client. In Task 2, we implemented input validation and sanitation
+					techniques for both the "echo.php" code and the HTML code used in Lab-2. These measures aimed to
+					eliminate security vulnerabilities and enhance the overall efficiency of the code. Our approach
+					involved employing various functions and patterns to validate inputs, ensuring a robust defense
+					against potential attacks and injections.In summary, the hackathon provided valuable insights into
+					code vulnerabilities and equipped us with strategies to mitigate security risks, emphasizing the
+					importance of input validation and sanitation techniques in building secure applications.
+
+
+				</p>
+			</li>
+		</ul>
+
 	</div>
 </body>
+
 </html>
