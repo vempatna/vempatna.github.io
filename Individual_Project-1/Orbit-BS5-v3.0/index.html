@@ -656,7 +656,7 @@
                         function fetchJoke() {
                             $.get("https://v2.jokeapi.dev/joke/Programming?type=single", function (result) {
                                 console.log("From JokeAPI: " + JSON.stringify(result));
-                                $("#quote-container").html("A programming joke of the day: " + result.joke);
+                                $("#quote-container").html("A programming joke of the Minute: " + result.joke);
                             });
                         }
 
